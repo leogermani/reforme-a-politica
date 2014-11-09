@@ -57,6 +57,9 @@
                 <div class="wrap clearfix">
                     <?php wp_nav_menu( array( 'theme_location' => 'main', 'container' => '', 'menu_id' => 'main-menu', 'menu_class' => 'clearfix', 'fallback_cb' =>'') ); ?>
                     <div><a href="<?php bloginfo('rss_url'); ?>" title="RSS Feed">rss</a></div>
+                    <?php if (current_user_can('read')): $cur_user = wp_get_current_user(); ?>
+                        <a href="<?php echo get_author_posts_url($cur_user->ID); ?>" title="Minha Reforma">Minha Reforma</a>
+                    <?php endif; ?>
                 </div>
             <!-- .wrap -->
             </nav>

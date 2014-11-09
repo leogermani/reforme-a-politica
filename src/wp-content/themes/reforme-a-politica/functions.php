@@ -7,6 +7,7 @@
 include dirname(__FILE__).'/includes/congelado-functions.php';
 include dirname(__FILE__).'/includes/html.class.php';
 include dirname(__FILE__).'/includes/utils.class.php';
+include dirname(__FILE__).'/includes/ReformeVoto/ReformeVoto.php';
 // include dirname(__FILE__).'/includes/form.class.php';
 
 

@@ -5,6 +5,8 @@
             
             <h2>Posicione-se</h2>
             
+            <?php ReformeVoto::theLink(get_the_ID()); ?>
+            
             <?php dynamic_sidebar('Sidebar'); ?>
         </aside>
 		<section id="main-section" class="col-8">			

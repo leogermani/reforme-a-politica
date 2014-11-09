@@ -51,7 +51,8 @@ class propostas
                 'title',
                 'editor',
                 'page-attributes',
-                'thumbnail'
+                'thumbnail',
+                'comments'
             ),
             //'taxonomies' => array('taxonomia')
             )
