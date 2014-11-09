@@ -230,12 +230,12 @@ endif;
 //////////////////////////////////// EMAILS SENDER  /////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-add_filter( 'wp_mail_from_name', 'colband_mail_sender_name' );
-function colband_mail_sender_name($from_name) {
+add_filter( 'wp_mail_from_name', 'reforme_mail_sender_name' );
+function reforme_mail_sender_name($from_name) {
     return get_option('blogname');
 }
-add_filter( 'wp_mail_from', 'colband_mail_sender' );
-function colband_mail_sender($from_name) {
+add_filter( 'wp_mail_from', 'reforme_mail_sender' );
+function reforme_mail_sender($from_name) {
     return get_option('admin_email');
 }
 
@@ -273,3 +273,13 @@ function reforme_addCSS() {
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
+
+add_action('pre_get_posts', function($query) {
+
+    if ( ($query->is_post_type_archive('propostas') || $query->is_tax('tema')) && $query->is_main_query() && !is_admin() ) {
+        $query->set('orderby', 'menu_order');
+        $query->set('order', 'ASC');
+        $query->set('posts_per_page', -1);
+    }
+
+});
